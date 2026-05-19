@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek Kumar | Digital Creator</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Inter',system-ui,sans-serif;
+      background:linear-gradient(135deg,#0A0A0F,#1A1A2E);
+      color:#ffffff;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:100%;
+      max-width:1200px;
+      margin:auto;
+      padding:20px;
+    }
+
+    section{
+      padding:80px 0;
+    }
+
+    /* HERO */
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:500px;
+      height:500px;
+      background:#4361EE;
+      opacity:0.15;
+      filter:blur(120px);
+      border-radius:50%;
+      top:-100px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+    }
+
+    .hero h1{
+      font-size:clamp(3rem,8vw,6rem);
+      font-weight:800;
+      line-height:1.1;
+      margin-bottom:20px;
+      background:linear-gradient(90deg,#ffffff,#4361EE);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .tagline{
+      font-size:1.2rem;
+      color:#c9d1d9;
+      margin-bottom:35px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    /* BUTTON */
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 28px;
+      border-radius:999px;
+      background:#4361EE;
+      color:#ffffff;
+      text-decoration:none;
+      font-weight:600;
+      transition:all 0.35s ease;
+      box-shadow:0 0 25px rgba(67,97,238,0.45);
+      border:none;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+      box-shadow:0 0 35px rgba(67,97,238,0.8);
+    }
+
+    .btn.secondary{
+      background:transparent;
+      border:1px solid #30363D;
+      backdrop-filter:blur(12px);
+    }
+
+    /* SECTION TITLE */
+
+    .section-title{
+      text-align:center;
+      font-size:2.5rem;
+      margin-bottom:50px;
+      font-weight:700;
+      background:linear-gradient(90deg,#ffffff,#7b92ff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    /* GRID */
+
+    .grid{
+      display:grid;
+      gap:25px;
+    }
+
+    .products-grid{
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+
+    .agents-grid{
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    }
+
+    /* CARD */
+
+    .card{
+      background:rgba(22,27,34,0.75);
+      border:1px solid #30363D;
+      border-radius:24px;
+      padding:30px;
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      transition:all 0.35s ease;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.05),
+        transparent
+      );
+      transform:translateX(-100%);
+      transition:0.8s;
+    }
+
+    .card:hover::before{
+      transform:translateX(100%);
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+      border-color:#4361EE;
+      box-shadow:0 0 35px rgba(67,97,238,0.35);
+    }
+
+    .card h3{
+      font-size:1.5rem;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:#c9d1d9;
+      line-height:1.7;
+      margin-bottom:25px;
+    }
+
+    .price{
+      font-size:2rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:#8ea2ff;
+    }
+
+    .icon{
+      width:70px;
+      height:70px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      margin-bottom:20px;
+      background:rgba(67,97,238,0.12);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:40px 20px;
+      border-top:1px solid #30363D;
+      text-align:center;
+    }
+
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+
+    .socials a{
+      color:#c9d1d9;
+      text-decoration:none;
+      transition:0.3s ease;
+    }
+
+    .socials a:hover{
+      color:#ffffff;
+      text-shadow:0 0 12px rgba(67,97,238,0.9);
+    }
+
+    footer p{
+      color:#8b949e;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero{
+        padding-top:50px;
+      }
+
+      .section-title{
+        font-size:2rem;
+      }
+
+      .tagline{
+        font-size:1rem;
+      }
+
+      .card{
+        padding:24px;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+      }
+
+      .btn{
+        width:100%;
+        max-width:280px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="container hero-content">
+
+      <h1>Abhishek Kumar</h1>
+
+      <p class="tagline">
+        Digital Creator | AI-Powered
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#products" class="btn">
+          Explore Products
+        </a>
+
+        <a href="upi://pay?pa=yourupi@upi&pn=AbhishekKumar&cu=INR" class="btn secondary">
+          Pay via UPI
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Premium Digital Products
+      </h2>
+
+      <div class="grid products-grid">
+
+        <!-- CARD 1 -->
+        <div class="card">
+
+          <h3>Templates Pack</h3>
+
+          <div class="price">₹300</div>
+
+          <p>
+            Premium editable templates for reels,
+            thumbnails, social media, AI prompts,
+            branding and creator workflow.
+          </p>
+
+          <a href="upi://pay?pa=yourupi@upi&pn=AbhishekKumar&am=300&cu=INR" class="btn">
+            Buy Now
+          </a>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+
+          <h3>AI Creator Ebook</h3>
+
+          <div class="price">₹699</div>
+
+          <p>
+            Learn AI content creation, digital selling,
+            branding systems and online growth strategies.
+          </p>
+
+          <a href="upi://pay?pa=yourupi@upi&pn=AbhishekKumar&am=699&cu=INR" class="btn">
+            Get Ebook
+          </a>
+
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+
+          <h3>Ultimate Bundle</h3>
+
+          <div class="price">₹899</div>
+
+          <p>
+            Complete creator toolkit with templates,
+            prompts, ebooks, motion assets and AI systems.
+          </p>
+
+          <a href="upi://pay?pa=yourupi@upi&pn=AbhishekKumar&am=899&cu=INR" class="btn">
+            Buy Bundle
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- AI AGENTS -->
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">
+        AI Agents
+      </h2>
+
+      <div class="grid agents-grid">
+
+        <!-- CHAT BOT -->
+        <div class="card">
+
+          <div class="icon">🤖</div>
+
+          <h3>Chat Bot Agent</h3>
+
+          <p>
+            Smart AI chatbot for automated replies,
+            customer support and lead generation.
+          </p>
+
+          <a href="upi://pay?pa=yourupi@upi&pn=AbhishekKumar&am=1499&cu=INR" class="btn">
+            Order Now
+          </a>
+
+        </div>
+
+        <!-- CALL AGENT -->
+        <div class="card">
+
+          <div class="icon">📞</div>
+
+          <h3>Call Agent</h3>
+
+          <p>
+            AI voice assistant for automated calls,
+            appointment booking and business support.
+          </p>
+
+          <a href="upi://pay?pa=yourupi@upi&pn=AbhishekKumar&am=2499&cu=INR" class="btn">
+            Get Started
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="socials">
+      <a href="#">Instagram</a>
+      <a href="#">YouTube</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Telegram</a>
+    </div>
+
+    <p>
+      © 2026 Abhishek Kumar. All Rights Reserved.
+    </p>
+
+  </footer>
+
+  <!-- JS -->
+  <script>
+
+    // Smooth card animation on mouse move
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+
+      card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.background = `
+          radial-gradient(
+            circle at ${x}px ${y}px,
+            rgba(67,97,238,0.18),
+            rgba(22,27,34,0.75) 45%
+          )
+        `;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.background = "rgba(22,27,34,0.75)";
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
